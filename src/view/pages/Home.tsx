@@ -4,7 +4,7 @@ import { MdOutlinePedalBike } from "react-icons/md";
 
 import { useEffect, useRef } from 'react'
 
-import animationData from '../../assets/menu-animation2.json'
+import animationData from '../../assets/menu-animation3.json'
 import Logo from '../../assets/logo.png'
 
 export function Home() {
@@ -14,17 +14,19 @@ export function Home() {
     setTimeout(() => {
       document.getElementById('header')?.setAttribute('class', 'transition-all duration-1000 h-[180px] w-full flex items-center justify-center bg-[#80b918] p-2')
       document.getElementById('logo')?.setAttribute('class', 'transition-all duration-1000 scale-[35%]')
+      document.getElementById('menu')?.setAttribute('class', 'transition-all duration-1000 w-[30px] opacity-100')
     }, 1000)
   })
 
   return(
     <>
-      <header id='header' className='h-screen w-full flex items-center justify-center bg-[#80b918] p-4'>
+      <header id='header' className='h-screen flex items-center justify-center w-full bg-[#80b918] px-8'>
         <div className='flex flex-1 items-center justify-center'>
           <img src={Logo} id='logo' className='h-auto' />
         </div>
         <Lottie
-          className='w-[60px]'
+          id='menu'
+          className='w-[30px] opacity-0'
           lottieRef={menuRef}
           animationData={animationData}
           onClick={() => {
@@ -89,18 +91,20 @@ export function Home() {
           Animi optio est molestiae eaque corporis dolor velit earum voluptate hic ipsum magnam deleniti neque ab unde eius excepturi soluta facere possimus, recusandae debitis officia iste reprehenderit! Doloremque, modi minus?</p>
         </div>
       </section>
-      <footer className='bg-[#80b918] text-white h-80 flex items-center justify-center'>
-        <img src={Logo} id='logo' className='h-[240px]' />
-        <div id="contacts" className='flex items-center justify-center'>
-          <a href="https://www.youtube.com/@TheSunsetRiders">
-            <FaYoutube className='text-[60px]' />
-          </a>
-          <a href="https://www.youtube.com/@TheSunsetRiders">
-            <FaInstagram />
-          </a>
-          <a href="https://www.youtube.com/@TheSunsetRiders">
-            <FaSquareXTwitter  />
-          </a>
+      <footer className='bg-[#80b918] text-white h-80 '>
+        <div className='h-[100%] flex items-center justify-center'>
+          <img src={Logo} id='logo' className='h-[240px] w-' />
+          <div id="contacts" className='flex items-center justify-center flex-1 gap-8'>
+            <a href="https://www.youtube.com/@TheSunsetRiders">
+              <FaYoutube className='text-[60px]' />
+            </a>
+            <a href="https://www.youtube.com/@TheSunsetRiders">
+              <FaInstagram className='text-[60px]' />
+            </a>
+            <a href="https://www.youtube.com/@TheSunsetRiders">
+              <FaSquareXTwitter className='text-[60px]' />
+            </a>
+          </div>
         </div>
       </footer>
     </>
