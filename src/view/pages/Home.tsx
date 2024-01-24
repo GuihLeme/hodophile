@@ -1,19 +1,19 @@
 import { useEffect, useRef } from 'react'
 
 import Lottie, { LottieRefCurrentProps } from 'lottie-react'
-import { FaCarSide, FaMotorcycle, FaVanShuttle, FaSquareYoutube , FaInstagram } from "react-icons/fa6";
-import { MdOutlinePedalBike } from "react-icons/md";
+import {FaSquareYoutube , FaInstagram } from "react-icons/fa6";
 import { Fade } from 'react-awesome-reveal'
 
 
-import menuData from '../../assets/menu-animation3.json'
 import globeData from '../../assets/globe-animation.json'
 import Logo from '../../assets/logo.png'
 import Bruna from '../../assets/bruna.jpg'
 import Higor from '../../assets/higor.jpg'
+import { Header } from '../components/Header';
+import { Navbar } from '../components/Navbar';
+import { ProfileCard } from '../components/ProfileCard';
 
 export function Home() {
-  const menuRef = useRef<LottieRefCurrentProps>(null)
   const globeRef = useRef<LottieRefCurrentProps>(null)
 
   useEffect(() => {
@@ -27,28 +27,7 @@ export function Home() {
   return(
     <>
       {/* header */}
-      <header id='header' className='h-screen flex items-center justify-center w-full bg-[#80b918] px-8'>
-        <div className='w-[1440px] flex items-center justify-center margin-auto'>
-          <div className='flex flex-1 items-center justify-center'>
-            <img src={Logo} id='logo' className='h-auto' />
-          </div>
-          <Lottie
-            id='menu'
-            className='w-[48px] opacity-0 hover:cursor-pointer'
-            lottieRef={menuRef}
-            animationData={menuData}
-            onClick={() => {
-              if(menuRef.current?.getDuration(true) === 70) {
-                menuRef.current?.playSegments([70,139], true)
-              } else {
-                menuRef.current?.playSegments([0,70], true)
-              }
-            }}
-            loop={false}
-            autoplay={false}
-          />
-        </div>
-      </header>
+      <Header />
       {/* video */}
       <video
         src="//a.storyblok.com/f/69091/x/a31bfd700b/showreel-2023-06-13.mp4"
@@ -58,35 +37,7 @@ export function Home() {
         playsInline
       />
       {/* nav */}
-      <div className='my-8 flex flex-col items-center justify-center gap-4 w-[1440px] mx-auto'>
-        <nav>
-          <Fade cascade>
-            <ul className='flex flex-row items-center justify-center space-x-32 '>
-                <li className='rounded-full bg-gradient-to-br from-[#80b918] to-[#597c17] p-2 hover:bg-[#597c17] transition-all duration-500'>
-                  <a href="/carro">
-                    <FaCarSide className='text-white hover:scale-105 hover:text-[#f7f7f7] transition-all duration-500 h-14 w-14' />
-                  </a>
-                </li>
-              <li className='rounded-full bg-[#80b918] p-2 hover:bg-[#597c17] transition-all duration-500'>
-                <a href="/moto">
-                  <FaMotorcycle className='text-white hover:scale-105 hover:text-[#f7f7f7] transition-all duration-500 h-14 w-14' />
-                </a>
-              </li>
-              <li className='rounded-full bg-[#80b918] p-2 hover:bg-[#597c17] transition-all duration-500'>
-                <a href="/bike">
-                  <MdOutlinePedalBike className='text-white hover:scale-105 hover:text-[#f7f7f7] transition-all duration-500 h-14 w-14' />
-                </a>
-              </li>
-              <li className='rounded-full bg-[#80b918] p-2 hover:bg-[#597c17] transition-all duration-500'>
-                <a href="/van">
-                  <FaVanShuttle className='text-white hover:scale-105 hover:text-[#f7f7f7] transition-all duration-500 h-14 w-14' />
-                </a>
-              </li>
-            </ul>
-          </Fade>
-        </nav>
-        <h1 className='text-[#80b918] text-5xl font-bold uppercase'>Para os amantes da estrada</h1>
-      </div>
+      <Navbar />
       {/* texts */}
       <section className='flex items-center justify-center gap-12 p-8  w-[1440px] mx-auto bg-[#81b9181f] m-4'>
         <div className='border-[1px] rounded-md border-[#80b918] p-4'>
@@ -130,22 +81,23 @@ export function Home() {
         <Fade cascade>
           <ul className='flex items-center justify-center space-x-32 p-8'>
             <li>
-              <a href='https://www.instagram.com/brunagrybogi/' className='flex flex-col gap-4 items-center justify-center '>
-                <img src={Bruna} alt="" className='w-60 h-60 object-cover rounded-full border-8 border-[#80b918] hover:scale-105'/>
-                <h3 className='text-3xl font-bold text-[#80b918]'>Bruna Grybogi</h3>
-              </a>
+              <ProfileCard
+                name='Bruna Grybogi'
+                imgURL={Bruna}
+                socialURL='https://www.instagram.com/brunagrybogi/'
+              />
             </li>
             <li>
-              <a href='https://www.instagram.com/brunagrybogi/' className='flex flex-col gap-4 items-center justify-center'>
-                <img src={Higor} alt="" className='w-60 h-60 object-cover rounded-full border-8 border-[#80b918]'/>
-                <h3 className='text-3xl font-bold text-[#80b918]'>Higor Carneiro</h3>
-              </a>
+              <ProfileCard
+                name='Higor Carneiro'
+                imgURL={Higor}
+              />
             </li>
             <li>
-              <a href='https://www.instagram.com/brunagrybogi/' className='flex flex-col gap-4 items-center justify-center'>
-                <img src={Bruna} alt="" className='w-60 h-60 object-cover rounded-full border-8 border-[#80b918]'/>
-                <h3 className='text-3xl font-bold text-[#80b918]'>Colaborador</h3>
-              </a>
+              <ProfileCard
+                name='Higor Carneiro'
+                imgURL={Higor}
+              />
             </li>
           </ul>
         </Fade>
