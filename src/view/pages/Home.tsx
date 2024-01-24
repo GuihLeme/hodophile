@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react'
 import Lottie, { LottieRefCurrentProps } from 'lottie-react'
 import { FaCarSide, FaMotorcycle, FaVanShuttle, FaSquareYoutube , FaInstagram } from "react-icons/fa6";
 import { MdOutlinePedalBike } from "react-icons/md";
+import { Fade } from 'react-awesome-reveal'
 
 
 import menuData from '../../assets/menu-animation3.json'
@@ -59,28 +60,30 @@ export function Home() {
       {/* nav */}
       <div className='my-8 flex flex-col items-center justify-center gap-4 w-[1440px] mx-auto'>
         <nav>
-          <ul className='flex flex-row items-center justify-center space-x-32'>
-            <li className='rounded-full bg-gradient-to-br from-[#80b918] to-[#597c17] p-2 hover:bg-[#597c17] transition-all duration-500'>
-              <a href="/carro">
-                <FaCarSide className='text-white hover:scale-105 hover:text-[#f7f7f7] transition-all duration-500 h-14 w-14' />
-              </a>
-            </li>
-            <li className='rounded-full bg-[#80b918] p-2 hover:bg-[#597c17] transition-all duration-500'>
-              <a href="/moto">
-                <FaMotorcycle className='text-white hover:scale-105 hover:text-[#f7f7f7] transition-all duration-500 h-14 w-14' />
-              </a>
-            </li>
-            <li className='rounded-full bg-[#80b918] p-2 hover:bg-[#597c17] transition-all duration-500'>
-              <a href="/bike">
-                <MdOutlinePedalBike className='text-white hover:scale-105 hover:text-[#f7f7f7] transition-all duration-500 h-14 w-14' />
-              </a>
-            </li>
-            <li className='rounded-full bg-[#80b918] p-2 hover:bg-[#597c17] transition-all duration-500'>
-              <a href="/van">
-                <FaVanShuttle className='text-white hover:scale-105 hover:text-[#f7f7f7] transition-all duration-500 h-14 w-14' />
-              </a>
-            </li>
-          </ul>
+          <Fade cascade>
+            <ul className='flex flex-row items-center justify-center space-x-32 '>
+                <li className='rounded-full bg-gradient-to-br from-[#80b918] to-[#597c17] p-2 hover:bg-[#597c17] transition-all duration-500'>
+                  <a href="/carro">
+                    <FaCarSide className='text-white hover:scale-105 hover:text-[#f7f7f7] transition-all duration-500 h-14 w-14' />
+                  </a>
+                </li>
+              <li className='rounded-full bg-[#80b918] p-2 hover:bg-[#597c17] transition-all duration-500'>
+                <a href="/moto">
+                  <FaMotorcycle className='text-white hover:scale-105 hover:text-[#f7f7f7] transition-all duration-500 h-14 w-14' />
+                </a>
+              </li>
+              <li className='rounded-full bg-[#80b918] p-2 hover:bg-[#597c17] transition-all duration-500'>
+                <a href="/bike">
+                  <MdOutlinePedalBike className='text-white hover:scale-105 hover:text-[#f7f7f7] transition-all duration-500 h-14 w-14' />
+                </a>
+              </li>
+              <li className='rounded-full bg-[#80b918] p-2 hover:bg-[#597c17] transition-all duration-500'>
+                <a href="/van">
+                  <FaVanShuttle className='text-white hover:scale-105 hover:text-[#f7f7f7] transition-all duration-500 h-14 w-14' />
+                </a>
+              </li>
+            </ul>
+          </Fade>
         </nav>
         <h1 className='text-[#80b918] text-5xl font-bold uppercase'>Para os amantes da estrada</h1>
       </div>
@@ -108,10 +111,10 @@ export function Home() {
         <input
           type="text"
           placeholder='pesquisar'
-          className='border-[1px] border-[#80b918] rounded-md p-2 w-[360px]'
+          className='border-2 border-[#80b918] rounded-md p-2 w-[360px]'
         />
         <Lottie
-            className='w-[72px] '
+            className='w-[80px] ml-4'
             lottieRef={globeRef}
             animationData={globeData}
             autoplay={true}
@@ -124,20 +127,28 @@ export function Home() {
       {/* who we are */}
       <section className='flex flex-col items-center justify-center gap-8'>
         <h1 className='text-[#80b918] text-6xl font-bold'>Quem somos nós?</h1>
-        <div className='flex items-center justify-center space-x-32 p-8'>
-          <a href='https://www.instagram.com/brunagrybogi/' className='flex flex-col gap-4 items-center justify-center '>
-            <img src={Bruna} alt="" className='w-60 h-60 object-cover rounded-full border-8 border-[#80b918] hover:scale-105'/>
-            <h3 className='text-3xl font-bold text-[#80b918]'>Bruna Grybogi</h3>
-          </a>
-          <a href='https://www.instagram.com/brunagrybogi/' className='flex flex-col gap-4 items-center justify-center'>
-            <img src={Higor} alt="" className='w-60 h-60 object-cover rounded-full border-8 border-[#80b918]'/>
-            <h3 className='text-3xl font-bold text-[#80b918]'>Higor Carneiro</h3>
-          </a>
-          <a href='https://www.instagram.com/brunagrybogi/' className='flex flex-col gap-4 items-center justify-center'>
-            <img src={Bruna} alt="" className='w-60 h-60 object-cover rounded-full border-8 border-[#80b918]'/>
-            <h3 className='text-3xl font-bold text-[#80b918]'>Colaborador</h3>
-          </a>
-        </div>
+        <Fade cascade>
+          <ul className='flex items-center justify-center space-x-32 p-8'>
+            <li>
+              <a href='https://www.instagram.com/brunagrybogi/' className='flex flex-col gap-4 items-center justify-center '>
+                <img src={Bruna} alt="" className='w-60 h-60 object-cover rounded-full border-8 border-[#80b918] hover:scale-105'/>
+                <h3 className='text-3xl font-bold text-[#80b918]'>Bruna Grybogi</h3>
+              </a>
+            </li>
+            <li>
+              <a href='https://www.instagram.com/brunagrybogi/' className='flex flex-col gap-4 items-center justify-center'>
+                <img src={Higor} alt="" className='w-60 h-60 object-cover rounded-full border-8 border-[#80b918]'/>
+                <h3 className='text-3xl font-bold text-[#80b918]'>Higor Carneiro</h3>
+              </a>
+            </li>
+            <li>
+              <a href='https://www.instagram.com/brunagrybogi/' className='flex flex-col gap-4 items-center justify-center'>
+                <img src={Bruna} alt="" className='w-60 h-60 object-cover rounded-full border-8 border-[#80b918]'/>
+                <h3 className='text-3xl font-bold text-[#80b918]'>Colaborador</h3>
+              </a>
+            </li>
+          </ul>
+        </Fade>
       </section>
       {/* footer */}
       <footer className='bg-[#80b918] text-white h-auto'>
