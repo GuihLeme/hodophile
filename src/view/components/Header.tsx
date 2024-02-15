@@ -2,7 +2,7 @@ import Lottie, { LottieRefCurrentProps } from 'lottie-react'
 
 import { useEffect, useRef, useState } from "react"
 
-import menuData from '../../assets/menu-animation3.json'
+import menuData from '../../assets/animation/menu-animation3.json'
 import Logo from '../../assets/logo.png'
 
 export function Header() {
@@ -31,12 +31,26 @@ export function Header() {
         </div>
       </div>
 
-      <div id='modal' className='opacity-0 hidden'>
-        <a href="#home">Home</a>
-        <a href="#search">Search</a>
-        <a href="#whoweare">Quem somos nós?</a>
-        <a href="#blog">Blog</a>
-        <a href="#contacts">Contatos</a>
+      <div id='modal' className='opacity-0 absolute top-0 h-0 w-full'>
+        <nav>
+          <ul className='w-[1440px] h-[180px] flex items-center justify-center space-x-8'>
+            <li>
+              <a href="#home">Home</a>
+            </li>
+            <li>
+              <a href="#search">Search</a>
+            </li>
+            <li>
+              <a href="#whoweare">Quem somos nós?</a>
+            </li>
+            <li>
+              <a href="#blog">Blog</a>
+            </li>
+            <li>
+              <a href="#contacts">Contatos</a>
+            </li>
+          </ul>
+        </nav>
       </div>
       <Lottie
         id='menu'

@@ -1,11 +1,11 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 
 import Lottie, { LottieRefCurrentProps } from 'lottie-react'
 import {FaSquareYoutube , FaInstagram } from "react-icons/fa6";
 import { Fade } from 'react-awesome-reveal'
 
 
-import globeData from '../../assets/globe-animation.json'
+import globeData from '../../assets/animation/globe-animation.json'
 import Logo from '../../assets/logo.png'
 import Bruna from '../../assets/bruna.jpg'
 import Higor from '../../assets/higor.jpg'
@@ -15,14 +15,6 @@ import { ProfileCard } from '../components/ProfileCard';
 
 export function Home() {
   const globeRef = useRef<LottieRefCurrentProps>(null)
-
-  useEffect(() => {
-    setTimeout(() => {
-      document.getElementById('header')?.setAttribute('class', 'transition-all duration-1000 h-[180px] w-full flex items-center justify-center bg-[#80b918] px-8')
-      document.getElementById('logo')?.setAttribute('class', 'transition-all duration-1000 scale-[35%]')
-      document.getElementById('menu')?.setAttribute('class', 'transition-all duration-1000 w-[36px] opacity-100 hover:cursor-pointer')
-    }, 1000)
-  })
 
   return(
     <>
